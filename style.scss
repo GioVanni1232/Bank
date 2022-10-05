@@ -1,0 +1,253 @@
+:root {
+  --White: hsl(0, 0%, 100%);
+  --Lightgrayishviolet: hsl(270, 3%, 87%);
+  --Darkgrayishviolet: hsl(279, 6%, 55%);
+  --Verydarkviolet: hsl(278, 68%, 11%);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+.contents {
+  display: flex;
+  flex-direction: column;
+}
+
+.image-container {
+  background-image: url("images/bg-main-mobile.png");
+  height: 300px;
+  position: relative;
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin-bottom: 100px;
+  width: 100%;
+
+  .card-front {
+    position: absolute;
+    bottom: -65px;
+    left: 5%;
+    z-index: 999;
+
+    img {
+      width: 90%;
+    }
+
+    span {
+      color: white;
+      font-size: 1.5em;
+      position: absolute;
+    }
+
+    .number {
+      top: 30%;
+      left: 5%;
+    }
+
+    .name {
+      top: 60%;
+      left: 5%;
+      font-size: 1em;
+      text-transform: uppercase;
+    }
+
+    .month,
+    .year {
+      top: 60%;
+      right: 22.5%;
+      font-size: 1em;
+    }
+
+    .year {
+      right: 12%;
+
+      &::before {
+        content: "/";
+      }
+    }
+  }
+
+  .card-back {
+    position: absolute;
+    left: 50px;
+    top: 40px;
+
+    img {
+      width: 90%;
+    }
+  }
+}
+
+.input-container {
+  display: flex;
+  justify-content: center;
+  padding: 1em;
+
+  form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+
+    .info,
+    .dates {
+      div {
+        display: flex;
+        flex-direction: column;
+
+        label {
+          font-weight: bold;
+          color: var(--Verydarkviolet);
+          margin-bottom: 5px;
+        }
+
+        input {
+          margin-bottom: 20px;
+          width: 100%;
+          outline: none;
+          appearance: none;
+          color: var(--Darkgrayishviolet);
+          font-weight: bold;
+          border: 1px solid var(--Lightgrayishviolet);
+          padding: 1em;
+          border-radius: 10px;
+
+          &::placeholder {
+            font-weight: bold;
+            color: var(--Lightgrayishviolet);
+          }
+        }
+      }
+    }
+
+    .dates div:nth-child(1) {
+      display: flex;
+      flex-direction: row;
+    }
+
+    .dates div:nth-child(2) {
+      display: flex;
+      flex-direction: row;
+      gap: 10px;
+    }
+
+    .dates div:nth-child(2) input:nth-child(1),
+    input:nth-child(2) {
+      width: 20%;
+    }
+
+    .dates div:nth-child(2) input:nth-child(3) {
+      width: 100%;
+    }
+
+    button[type="submit"] {
+      background-color: var(--Verydarkviolet);
+      color: white;
+      padding: 1em;
+      border-radius: 20px;
+      font-size: 1.2em;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      font-weight: bold;
+      border: none;
+    }
+  }
+}
+
+.done {
+  display: none !important;
+}
+
+.submitted {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
+  margin-top: 50px;
+  gap: 20px;
+
+  img {
+    width: 100px;
+  }
+
+  h1 {
+    font-size: 3em;
+    font-weight: 500;
+  }
+
+  p {
+    font-size: 1.3em;
+  }
+
+  button {
+    padding: 1.5em 1em;
+    border: none;
+    background-color: var(--Verydarkviolet);
+    color: white;
+    border-radius: 10px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    font-size: 1em;
+    width: 60%;
+  }
+}
+
+.error {
+  border-color: red !important;
+}
+
+@media (min-width: 1440px) {
+  .contents {
+    flex-direction: row;
+  }
+
+  .image-container {
+    height: 100vh;
+    width: 30%;
+
+    .card-front {
+      width: 100%;
+      left: 30%;
+      top: 20%;
+      max-width: 500px;
+
+      .number {
+        top: 10%;
+      }
+
+      .name {
+        top: 20%;
+      }
+
+      .month,
+      .year {
+        top: 20%;
+      }
+    }
+
+    .card-back {
+      width: 100%;
+      max-width: 500px;
+      top: 50%;
+      left: 50%;
+    }
+  }
+
+  .input-container {
+    align-items: center;
+    margin: auto;
+
+    form {
+      width: 400px;
+    }
+  }
+
+  .submitted {
+    position: absolute;
+    top: 200px;
+    left: 45%;
+    width: 600px;
+  }
+}
